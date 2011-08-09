@@ -1,0 +1,24 @@
+from django.conf.urls.defaults import *
+from polls.models import Poll
+from django.contrib import admin
+admin.autodiscover()
+
+info_dict = {
+    'queryset': Poll.objects.all(),
+    }
+urlpatterns = patterns('',
+                        (r'^polls/', include('polls.urls')),
+                        (r'^admin/', include(admin.site.urls)),
+                        )
+
+                       
+                       
+                       
+    # Example:
+    # (r'^mysite/', include('mysite.foo.urls')),
+
+    # Uncomment the admin/doc line below to enable admin documentation:
+    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
+
+    # Uncomment the next line to enable the admin:
+
